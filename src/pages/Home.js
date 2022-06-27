@@ -29,6 +29,9 @@ class Home extends Component {
   // updates the state with the new list.
   addTodo = (todo) => {
     const exists = this.state.todos.find(t => t.content === todo.content);
+    if ((todo.due === null) || (todo.due ==="Invalid Date")) {
+      return
+    };
     if (exists){ return }
     // In React, keys or ids in a list help identify which items have changed, been added or removed. Keys
     // should not share duplicate values.
